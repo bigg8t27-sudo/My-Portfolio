@@ -77,18 +77,19 @@ export default function HumanoidAssistant({ open, onClose, onStateChange }: Huma
     const text = input.trim();
     if (!text) return;
     setInput('');
+    stopSpeech(); // stop any current speech before sending
     setState('thinking');
     const reply = await sendMessage(text);
-    if (reply && settings.soundEnabled && settings.autoSpeak) {
+    if (reply && settings.soundEnabled) {
+      setState('speaking');
       speak(reply.content, {
         voiceName: settings.selectedVoice,
         rate:  settings.speechRate,
         pitch: settings.speechPitch,
         onEnd: () => setState('idle'),
       });
-      setState('speaking');
     }
-  }, [input, sendMessage, settings, speak, setState]);
+  }, [input, sendMessage, settings, speak, stopSpeech, setState]);
 
   const handleSpeak = useCallback((text: string) => {
     if (!settings.soundEnabled) return;
@@ -296,7 +297,7 @@ export default function HumanoidAssistant({ open, onClose, onStateChange }: Huma
                 {messages.length <= 1 && (
                   <div className="px-4 pb-2 flex flex-wrap gap-1.5 flex-shrink-0">
                     {SUGGESTIONS.map(s => (
-                      <button key={s} type="button" onClick={() => { setInput(s); }}
+                      <button key={s} type="button" onClick={() => { setInput(s); setTimeout(() => inputRef.current?.focus(), 0); }}
                         className="px-2.5 py-1 text-[10px] tracking-wide rounded-full text-cyan-300/70 hover:text-cyan-300 transition-colors"
                         style={{ background:'rgba(6,182,212,0.07)', border:'1px solid rgba(6,182,212,0.2)' }}>
                         {s}

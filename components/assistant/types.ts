@@ -33,7 +33,7 @@ export interface AssistantSettings {
 export const DEFAULT_SETTINGS: AssistantSettings = {
   enabled:          true,
   soundEnabled:     true,
-  autoSpeak:        false,
+  autoSpeak:        true,   // speak replies by default
   soundEffects:     false,
   voiceInputEnabled: true,
   selectedVoice:    '',
