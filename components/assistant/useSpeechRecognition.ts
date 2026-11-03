@@ -39,8 +39,10 @@ export function useSpeechRecognition() {
 
     rec.onerror = (e: any) => {
       setListening(false);
+      // Ignore benign errors that fire automatically (aborted, audio-capture)
+      if (e.error === 'aborted' || e.error === 'audio-capture') return;
       if (e.error === 'not-allowed') setError('Microphone permission denied.');
-      else if (e.error === 'no-speech') setError('No speech detected. Try again.');
+      else if (e.error === 'no-speech') setError(null); // not an error worth showing
       else setError('Speech recognition error.');
     };
 
@@ -55,5 +57,7 @@ export function useSpeechRecognition() {
     setListening(false);
   }, []);
 
-  return { listening, transcript, error, supported, start, stop };
+  const clearError = useCallback(() => setError(null), []);
+
+  return { listening, transcript, error, supported, start, stop, clearError };
 }

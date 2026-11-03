@@ -38,7 +38,7 @@ export default function HumanoidAssistant({ open, onClose, onStateChange }: Huma
   const { messages, state: chatState, error, setState, sendMessage, clearHistory } = useAssistantChat();
   const { settings, update, reset } = useAssistantSettings();
   const { voices, speaking, speak, stop: stopSpeech } = useSpeechSynthesis();
-  const { listening, transcript, error: micError, supported: micSupported, start: startListen, stop: stopListen } = useSpeechRecognition();
+  const { listening, transcript, error: micError, supported: micSupported, start: startListen, stop: stopListen, clearError: clearMicError } = useSpeechRecognition();
 
   const [input,        setInput]        = useState('');
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -68,10 +68,11 @@ export default function HumanoidAssistant({ open, onClose, onStateChange }: Huma
     if (transcript) setInput(transcript);
   }, [transcript]);
 
-  // Stop speech on close
+  // Stop speech on close, clear mic error on open
   useEffect(() => {
     if (!open) stopSpeech();
-  }, [open, stopSpeech]);
+    else clearMicError();
+  }, [open, stopSpeech, clearMicError]);
 
   const handleSend = useCallback(async () => {
     const text = input.trim();
