@@ -1,0 +1,308 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #000000;
+  --color-midnight: #0a0a1a;
+  --color-navy: #0d0d2e;
+  --color-electric-blue: #3b82f6;
+  --color-purple: #8b5cf6;
+  --color-cyan: #06b6d4;
+  --color-white: #ffffff;
+  /* Font families — loaded via next/font/google */
+  --font-syne: 'Syne', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-inter: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apply Syne to display headings by default */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-syne), 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── Custom scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar            { width: 4px; }
+::-webkit-scrollbar-track      { background: #000; }
+::-webkit-scrollbar-thumb      { background: #3b82f6; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover{ background: #60a5fa; }
+
+/* ── Utilities ──────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
+              0 0 60px rgba(59, 130, 246, 0.15);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5),
+              0 0 60px rgba(139, 92, 246, 0.15);
+}
+
+/* ── Fix non-standard Tailwind opacity fractions ─────────── */
+.bg-white\/3     { background-color: rgba(255,255,255,0.03)  !important; }
+.bg-white\/6     { background-color: rgba(255,255,255,0.06)  !important; }
+.bg-white\/8     { background-color: rgba(255,255,255,0.08)  !important; }
+.border-white\/8 { border-color: rgba(255,255,255,0.08)      !important; }
+
+/* ── Focus ring baseline ─────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Mobile viewport fix ─────────────────────────────────── */
+@supports (min-height: 100dvh) {
+  .min-h-screen { min-height: 100dvh; }
+}
+
+/* ── Marquee infinite scroll ─────────────────────────────── */
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ── Theme overrides via data-theme attribute ─────────────────── */
+
+/* ── Shared CSS vars per theme (used by components that reference them) ── */
+:root {
+  --theme-bg:        #000000;
+  --theme-bg-subtle: #0a0a1a;
+  --theme-text:      #ffffff;
+  --theme-text-muted: rgba(255,255,255,0.5);
+  --theme-section-bg: transparent;
+}
+[data-theme="blue"] {
+  --theme-bg:        #060d20;
+  --theme-bg-subtle: #080f28;
+  --theme-text:      #e8f0ff;
+  --theme-text-muted: rgba(232,240,255,0.55);
+  --theme-section-bg: #060d20;
+}
+[data-theme="white"] {
+  --theme-bg:        #f0f4ff;
+  --theme-bg-subtle: #e8eeff;
+  --theme-text:      #0f172a;
+  --theme-text-muted: rgba(15,23,42,0.55);
+  --theme-section-bg: #f0f4ff;
+}
+[data-theme="dark"] {
+  --theme-bg:        #000000;
+  --theme-bg-subtle: #0a0a1a;
+  --theme-text:      #ffffff;
+  --theme-text-muted: rgba(255,255,255,0.5);
+  --theme-section-bg: transparent;
+}
+
+/* ─────────── BLUE THEME ─────────────────────────────────────── */
+[data-theme="blue"],
+[data-theme="blue"] body {
+  background-color: #060d20 !important;
+  color: #e8f0ff !important;
+}
+[data-theme="blue"] section,
+[data-theme="blue"] #home,
+[data-theme="blue"] #about,
+[data-theme="blue"] #services,
+[data-theme="blue"] #portfolio,
+[data-theme="blue"] #skills,
+[data-theme="blue"] #process,
+[data-theme="blue"] #testimonials,
+[data-theme="blue"] #contact {
+  background-color: #060d20 !important;
+}
+[data-theme="blue"] header {
+  background-color: rgba(6,13,32,0.88) !important;
+}
+[data-theme="blue"] footer {
+  background-color: #040a18 !important;
+}
+[data-theme="blue"] .gradient-text {
+  background: linear-gradient(135deg, #60a5fa, #818cf8) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+[data-theme="blue"] ::-webkit-scrollbar-thumb { background: #60a5fa !important; }
+[data-theme="blue"] ::-webkit-scrollbar-track  { background: #060d20 !important; }
+/* Readable muted text */
+[data-theme="blue"] .text-white\/50,
+[data-theme="blue"] .text-white\/45,
+[data-theme="blue"] .text-white\/40,
+[data-theme="blue"] .text-white\/35,
+[data-theme="blue"] .text-white\/30 { color: rgba(232,240,255,0.55) !important; }
+[data-theme="blue"] .text-white\/70,
+[data-theme="blue"] .text-white\/65,
+[data-theme="blue"] .text-white\/60 { color: rgba(232,240,255,0.75) !important; }
+[data-theme="blue"] canvas { background: transparent !important; }
+
+/* ─────────── LIGHT THEME ────────────────────────────────────── */
+[data-theme="white"],
+[data-theme="white"] body {
+  background-color: #f0f4ff !important;
+  color: #0f172a !important;
+}
+[data-theme="white"] section,
+[data-theme="white"] #home,
+[data-theme="white"] #about,
+[data-theme="white"] #services,
+[data-theme="white"] #portfolio,
+[data-theme="white"] #skills,
+[data-theme="white"] #process,
+[data-theme="white"] #testimonials,
+[data-theme="white"] #contact {
+  background-color: #f0f4ff !important;
+}
+[data-theme="white"] header {
+  background-color: rgba(240,244,255,0.92) !important;
+  border-color: rgba(15,23,42,0.12) !important;
+}
+[data-theme="white"] header span,
+[data-theme="white"] header button,
+[data-theme="white"] header a,
+[data-theme="white"] header nav button {
+  color: #0f172a !important;
+}
+[data-theme="white"] footer {
+  background-color: #e8eeff !important;
+  color: #0f172a !important;
+}
+[data-theme="white"] .gradient-text {
+  background: linear-gradient(135deg, #1d4ed8, #7c3aed) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+[data-theme="white"] .glass {
+  background: rgba(15,23,42,0.05) !important;
+  border-color: rgba(15,23,42,0.12) !important;
+}
+[data-theme="white"] ::-webkit-scrollbar-thumb { background: #1d4ed8 !important; }
+[data-theme="white"] ::-webkit-scrollbar-track  { background: #e2e8f0 !important; }
+/* Text adjustments */
+[data-theme="white"] .text-white { color: #0f172a !important; }
+[data-theme="white"] .text-white\/70,
+[data-theme="white"] .text-white\/65,
+[data-theme="white"] .text-white\/60 { color: rgba(15,23,42,0.72) !important; }
+[data-theme="white"] .text-white\/55,
+[data-theme="white"] .text-white\/50,
+[data-theme="white"] .text-white\/45 { color: rgba(15,23,42,0.58) !important; }
+[data-theme="white"] .text-white\/40,
+[data-theme="white"] .text-white\/35,
+[data-theme="white"] .text-white\/30 { color: rgba(15,23,42,0.45) !important; }
+[data-theme="white"] h1, [data-theme="white"] h2,
+[data-theme="white"] h3, [data-theme="white"] h4 { color: #0f172a !important; }
+[data-theme="white"] canvas { background: transparent !important; }
+/* Card / panel backgrounds */
+[data-theme="white"] .rounded-2xl,
+[data-theme="white"] .rounded-xl,
+[data-theme="white"] .rounded-3xl {
+  background-color: rgba(255,255,255,0.7);
+}
+/* Override section overlay divs (absolute inset backgrounds) */
+[data-theme="white"] section > div[class*="absolute"][class*="inset"] {
+  background: rgba(240,244,255,0.85) !important;
+}
+
+/* ─────────── DARK THEME — explicit reset ────────────────────── */
+[data-theme="dark"],
+[data-theme="dark"] body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+[data-theme="dark"] section,
+[data-theme="dark"] #home,
+[data-theme="dark"] #about,
+[data-theme="dark"] #services,
+[data-theme="dark"] #portfolio,
+[data-theme="dark"] #skills,
+[data-theme="dark"] #process,
+[data-theme="dark"] #testimonials,
+[data-theme="dark"] #contact {
+  background-color: transparent !important;
+}
+[data-theme="dark"] header {
+  background-color: rgba(0,4,18,0.75) !important;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #3b82f6 !important; }
+[data-theme="dark"] ::-webkit-scrollbar-track  { background: #000 !important; }
+/* Restore card backgrounds on dark */
+[data-theme="dark"] .rounded-2xl,
+[data-theme="dark"] .rounded-xl,
+[data-theme="dark"] .rounded-3xl {
+  background-color: unset;
+}
