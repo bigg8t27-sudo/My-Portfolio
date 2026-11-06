@@ -107,31 +107,16 @@ export default function HeroSection({ ready }: { ready: boolean }) {
         <div className="absolute bottom-0 right-0 w-[600px] h-[400px] pointer-events-none"
           style={{ background:'radial-gradient(ellipse at bottom right, rgba(80,0,200,0.2) 0%, transparent 65%)', filter:'blur(40px)' }}/>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full min-h-screen py-20 lg:py-0"
-          style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gridTemplateRows:'1fr', gap:'1rem', alignItems:'center' }}>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full min-h-screen py-20 lg:py-0 grid grid-cols-1 lg:grid-cols-2 lg:gap-4 items-center">
 
-          {/* ── COL 1: Robot + HUD — open, no card boundary ──── */}
+          {/* ── ROW 1 on mobile / COL 2 on desktop: Text ─── */}
           <motion.div
-            className="relative flex items-center justify-center"
-            style={{ gridColumn:'1', gridRow:'1', minHeight:'520px' }}
-            initial={{ opacity:0, scale:0.93 }}
-            animate={ready ? { opacity:1, scale:1 } : { opacity:0, scale:0.93 }}
-            transition={{ duration:1.0, ease:[0.22,1,0.36,1], delay:0.2 }}
-            aria-hidden="true"
-          >
-            <NexusScene ready={ready}/>
-            <HolographicHUD ready={ready}/>
-          </motion.div>
-
-          {/* ── COL 2: Text + Command Interface ─────────────── */}
-          <motion.div
-            className="flex flex-col gap-5"
-            style={{ gridColumn:'2', gridRow:'1' }}
+            className="flex flex-col gap-4 lg:gap-5 order-1 lg:order-2 pt-4 lg:pt-0"
             initial="hidden"
             animate={ready ? 'visible' : 'hidden'}
             variants={cv}
           >
-            {/* Hello I'm — typewriter cycling through roles */}
+            {/* Hello I'm */}
             <motion.div variants={fadeUp(0)} className="flex items-center gap-2">
               <div className="px-4 py-1.5 rounded-full flex items-center gap-2"
                 style={{ background:'rgba(59,130,246,0.08)', border:'1px solid rgba(59,130,246,0.25)' }}>
@@ -209,12 +194,28 @@ export default function HeroSection({ ready }: { ready: boolean }) {
               ))}
             </motion.div>
 
-            {/* ── NEXUS Command Interface ──────────────────── */}
+            {/* NEXUS Command Interface */}
             <motion.div variants={fadeUp(0.55)} className="mt-1">
               <NexusCommandInterface ready={ready}/>
             </motion.div>
           </motion.div>
-        </div>
+
+          {/* ── ROW 2 on mobile / COL 1 on desktop: Robot + HUD ── */}
+          <motion.div
+            className="relative flex items-center justify-center order-2 lg:order-1"
+            style={{ minHeight: '320px' }}
+            initial={{ opacity:0, scale:0.93 }}
+            animate={ready ? { opacity:1, scale:1 } : { opacity:0, scale:0.93 }}
+            transition={{ duration:1.0, ease:[0.22,1,0.36,1], delay:0.2 }}
+            aria-hidden="true"
+          >
+            <NexusScene ready={ready}/>
+            <div className="hidden lg:block absolute inset-0 pointer-events-none">
+              <HolographicHUD ready={ready}/>
+            </div>
+          </motion.div>
+
+        </div>{/* end grid */}
 
         {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none z-10"

@@ -159,7 +159,7 @@ export default function NexusScene({ ready }: { ready: boolean }) {
             transition={{ duration: eyePulse ? 0.6 : 2.5, ease: 'easeInOut', repeat: Infinity }}
           />
 
-          {/* Hero video — displayed freely, no card boundary */}
+          {/* Hero video — blended into background, no hard edges */}
           <video
             src="/incredimate12_pindown.io_1793660625.mp4"
             autoPlay
@@ -174,6 +174,8 @@ export default function NexusScene({ ready }: { ready: boolean }) {
               height: 'auto',
               objectFit: 'contain',
               filter: 'drop-shadow(0 0 40px rgba(59,130,246,0.6)) drop-shadow(0 0 80px rgba(59,130,246,0.25)) drop-shadow(0 0 120px rgba(168,85,247,0.15))',
+              maskImage: 'radial-gradient(ellipse 78% 82% at 50% 50%, black 45%, transparent 80%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 78% 82% at 50% 50%, black 45%, transparent 80%)',
             }}
           />
         </motion.div>

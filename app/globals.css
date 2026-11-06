@@ -234,10 +234,12 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme="white"] header span,
 [data-theme="white"] header button,
 [data-theme="white"] header a,
-[data-theme="white"] header nav button {
-  color: #0f172a !important;
-}
-[data-theme="white"] footer {
+[data-theme="white"] header nav button { color: #0f172a !important; }
+[data-theme="white"] footer,
+[data-theme="white"] footer p,
+[data-theme="white"] footer span,
+[data-theme="white"] footer a,
+[data-theme="white"] footer div {
   background-color: #e8eeff !important;
   color: #0f172a !important;
 }
@@ -248,35 +250,56 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text !important;
 }
 [data-theme="white"] .glass {
-  background: rgba(15,23,42,0.05) !important;
+  background: rgba(255,255,255,0.75) !important;
   border-color: rgba(15,23,42,0.12) !important;
 }
 [data-theme="white"] ::-webkit-scrollbar-thumb { background: #1d4ed8 !important; }
 [data-theme="white"] ::-webkit-scrollbar-track  { background: #e2e8f0 !important; }
-/* Text adjustments */
-[data-theme="white"] .text-white { color: #0f172a !important; }
+/* ALL headings → dark */
+[data-theme="white"] h1,
+[data-theme="white"] h2,
+[data-theme="white"] h3,
+[data-theme="white"] h4,
+[data-theme="white"] h5,
+[data-theme="white"] h6 { color: #0f172a !important; }
+/* ALL paragraph / body text → dark */
+[data-theme="white"] p  { color: rgba(15,23,42,0.78) !important; }
+[data-theme="white"] li { color: rgba(15,23,42,0.78) !important; }
+/* All white text utilities → dark */
+[data-theme="white"] .text-white    { color: #0f172a !important; }
+[data-theme="white"] .text-white\/90,
+[data-theme="white"] .text-white\/85,
+[data-theme="white"] .text-white\/80 { color: rgba(15,23,42,0.88) !important; }
 [data-theme="white"] .text-white\/70,
 [data-theme="white"] .text-white\/65,
 [data-theme="white"] .text-white\/60 { color: rgba(15,23,42,0.72) !important; }
 [data-theme="white"] .text-white\/55,
 [data-theme="white"] .text-white\/50,
-[data-theme="white"] .text-white\/45 { color: rgba(15,23,42,0.58) !important; }
+[data-theme="white"] .text-white\/45 { color: rgba(15,23,42,0.60) !important; }
 [data-theme="white"] .text-white\/40,
 [data-theme="white"] .text-white\/35,
-[data-theme="white"] .text-white\/30 { color: rgba(15,23,42,0.45) !important; }
-[data-theme="white"] h1, [data-theme="white"] h2,
-[data-theme="white"] h3, [data-theme="white"] h4 { color: #0f172a !important; }
+[data-theme="white"] .text-white\/30 { color: rgba(15,23,42,0.50) !important; }
+[data-theme="white"] .text-white\/25,
+[data-theme="white"] .text-white\/20 { color: rgba(15,23,42,0.40) !important; }
+/* Accent colours stay readable */
+[data-theme="white"] .text-blue-400  { color: #1d4ed8 !important; }
+[data-theme="white"] .text-blue-300  { color: #2563eb !important; }
+[data-theme="white"] .text-purple-400 { color: #7c3aed !important; }
+[data-theme="white"] .text-purple-300 { color: #7c3aed !important; }
+[data-theme="white"] .text-cyan-400  { color: #0e7490 !important; }
+[data-theme="white"] .text-cyan-300  { color: #0e7490 !important; }
+[data-theme="white"] .text-green-400 { color: #15803d !important; }
+/* Border overrides */
+[data-theme="white"] .border-white\/5,
+[data-theme="white"] .border-white\/8,
+[data-theme="white"] .border-white\/10 { border-color: rgba(15,23,42,0.10) !important; }
+[data-theme="white"] .border-white\/20 { border-color: rgba(15,23,42,0.16) !important; }
+/* Canvas stays transparent */
 [data-theme="white"] canvas { background: transparent !important; }
 /* Card / panel backgrounds */
 [data-theme="white"] .rounded-2xl,
 [data-theme="white"] .rounded-xl,
-[data-theme="white"] .rounded-3xl {
-  background-color: rgba(255,255,255,0.7);
-}
-/* Override section overlay divs (absolute inset backgrounds) */
-[data-theme="white"] section > div[class*="absolute"][class*="inset"] {
-  background: rgba(240,244,255,0.85) !important;
-}
+[data-theme="white"] .rounded-3xl { background-color: rgba(255,255,255,0.72); }
 
 /* ─────────── DARK THEME — explicit reset ────────────────────── */
 [data-theme="dark"],

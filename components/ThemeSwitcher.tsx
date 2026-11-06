@@ -60,20 +60,19 @@ const THEME_CSS: Record<Theme, string> = {
       border-color: rgba(15,23,42,0.12) !important;
     }
     header span, header button, header a, header nav button { color: #0f172a !important; }
-    footer { background-color: #e8eeff !important; color: #0f172a !important; }
+    footer, footer p, footer span, footer a, footer div {
+      background-color: #e8eeff !important; color: #0f172a !important;
+    }
     #main-content { background-color: #f0f4ff !important; }
     h1,h2,h3,h4,h5,h6 { color: #0f172a !important; }
-    p { color: rgba(15,23,42,0.7) !important; }
+    p  { color: rgba(15,23,42,0.78) !important; }
+    li { color: rgba(15,23,42,0.78) !important; }
+    .text-white { color: #0f172a !important; }
+    [class*="text-white"] { color: rgba(15,23,42,0.75) !important; }
     ::-webkit-scrollbar-thumb { background: #1d4ed8 !important; }
     ::-webkit-scrollbar-track { background: #e2e8f0 !important; }
     canvas { background: transparent !important; }
-    .glass {
-      background: rgba(255,255,255,0.65) !important;
-      border-color: rgba(15,23,42,0.1) !important;
-    }
-    /* Muted white text → dark readable */
-    [class*="text-white\\/"] { color: rgba(15,23,42,0.6) !important; }
-    .text-white { color: #0f172a !important; }
+    .glass { background: rgba(255,255,255,0.75) !important; border-color: rgba(15,23,42,0.12) !important; }
   `,
 };
 

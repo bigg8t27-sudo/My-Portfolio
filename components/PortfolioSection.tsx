@@ -7,76 +7,111 @@ const categories = ['All','Web Design','Development','UI/UX','Branding'];
 const projects = [
   {
     id:1, title:'NovaTech Dashboard',
-    category:'Development', tags:['Next.js','Framer Motion','Tailwind'],
-    desc:'A real-time analytics dashboard for a SaaS platform — dark-mode first, silky-smooth data visualisations.',
+    category:'Development', tags:['Next.js','Framer Motion','Tailwind','Chart.js'],
+    desc:'Real-time SaaS analytics platform with live KPI tiles, interactive charts, dark-mode-first UI, and role-based access control.',
     accent:'59,130,246', year:'2025',
-    gradient:'linear-gradient(135deg,rgba(59,130,246,0.4),rgba(10,10,30,0.9))',
+    gradient:'linear-gradient(135deg,rgba(59,130,246,0.5),rgba(10,10,30,0.95))',
     link:'#', featured: true,
+    mockLines: [
+      { w:'60%', c:'59,130,246' }, { w:'80%', c:'255,255,255' }, { w:'45%', c:'255,255,255' },
+    ],
+    mockStats: [['1.2M','Users'],['99.9%','Uptime'],['4.8★','Rating']],
   },
   {
     id:2, title:'Luminary E-Commerce',
-    category:'Web Design', tags:['Figma','Shopify','Motion'],
-    desc:'Premium e-commerce redesign for a luxury jewellery brand — conversion rate up 220% post-launch.',
+    category:'Web Design', tags:['Figma','Shopify','Motion','SEO'],
+    desc:'Premium luxury jewellery store redesign — cinematic product reveals, checkout flow optimisation, +220% conversion rate post-launch.',
     accent:'139,92,246', year:'2025',
-    gradient:'linear-gradient(135deg,rgba(139,92,246,0.4),rgba(10,10,30,0.9))',
+    gradient:'linear-gradient(135deg,rgba(139,92,246,0.5),rgba(10,10,30,0.95))',
     link:'#', featured: true,
+    mockLines: [
+      { w:'70%', c:'139,92,246' }, { w:'55%', c:'255,255,255' }, { w:'85%', c:'255,255,255' },
+    ],
+    mockStats: [['+220%','Conversion'],['50K+','Monthly Visits'],['4.9★','Reviews']],
   },
   {
     id:3, title:'PulseAI Landing Page',
-    category:'UI/UX', tags:['React','GSAP','Figma'],
-    desc:'Immersive landing page for an AI startup — cinematic scroll experience and a 45% trial signup uplift.',
+    category:'UI/UX', tags:['React','GSAP','Figma','WebGL'],
+    desc:'Cinematic landing page for an AI startup — parallax hero, scroll-driven animations, and a 45% improvement in trial signups.',
     accent:'6,182,212', year:'2024',
-    gradient:'linear-gradient(135deg,rgba(6,182,212,0.4),rgba(10,10,30,0.9))',
+    gradient:'linear-gradient(135deg,rgba(6,182,212,0.5),rgba(10,10,30,0.95))',
     link:'#', featured: true,
+    mockLines: [
+      { w:'90%', c:'6,182,212' }, { w:'65%', c:'255,255,255' }, { w:'50%', c:'255,255,255' },
+    ],
+    mockStats: [['+45%','Signups'],['2.1s','Load Time'],['98','Perf Score']],
   },
   {
     id:4, title:'Verdant Brand Identity',
-    category:'Branding', tags:['Logo','Guidelines','Print'],
-    desc:'Complete brand identity for an eco-tech startup — from naming and logomark through to full design system.',
+    category:'Branding', tags:['Logo','Design System','Typography','Print'],
+    desc:'Complete brand identity for an eco-tech startup — logomark, colour system, typography scale, brand guidelines, and packaging.',
     accent:'16,185,129', year:'2024',
-    gradient:'linear-gradient(135deg,rgba(16,185,129,0.4),rgba(10,10,30,0.9))',
+    gradient:'linear-gradient(135deg,rgba(16,185,129,0.5),rgba(10,10,30,0.95))',
     link:'#', featured: true,
+    mockLines: [
+      { w:'55%', c:'16,185,129' }, { w:'75%', c:'255,255,255' }, { w:'40%', c:'255,255,255' },
+    ],
+    mockStats: [['6','Brand Tokens'],['400+','Assets'],['12','Deliverables']],
   },
   {
     id:5, title:'Apex Finance App',
-    category:'Development', tags:['Next.js','Postgres','Plaid'],
-    desc:'Personal finance web app with live bank feeds, budget visualisations, and AI-driven spending insights.',
+    category:'Development', tags:['Next.js','PostgreSQL','Plaid API','AI'],
+    desc:'Personal finance web app with live bank feeds, AI-driven spending insights, budget visualisations, and secure OAuth2 authentication.',
     accent:'59,130,246', year:'2024',
-    gradient:'linear-gradient(135deg,rgba(59,130,246,0.3),rgba(139,92,246,0.3),rgba(10,10,30,0.9))',
+    gradient:'linear-gradient(135deg,rgba(59,130,246,0.35),rgba(139,92,246,0.35),rgba(10,10,30,0.95))',
     link:'#', featured: true,
+    mockLines: [
+      { w:'75%', c:'59,130,246' }, { w:'60%', c:'139,92,246' }, { w:'80%', c:'255,255,255' },
+    ],
+    mockStats: [['10K+','Transactions'],['Bank-Grade','Security'],['AI','Insights']],
   },
   {
     id:6, title:'Studio Oslo Portfolio',
-    category:'Web Design', tags:['Next.js','Three.js','GLSL'],
-    desc:'Award-winning portfolio for a Copenhagen architecture studio — WebGL parallax and custom shaders.',
+    category:'Web Design', tags:['Next.js','Three.js','GLSL','WebGL'],
+    desc:'Award-winning portfolio for a Copenhagen architecture studio — custom WebGL shaders, mouse-driven parallax, and smooth page transitions.',
     accent:'139,92,246', year:'2025',
-    gradient:'linear-gradient(135deg,rgba(139,92,246,0.3),rgba(6,182,212,0.25),rgba(10,10,30,0.9))',
+    gradient:'linear-gradient(135deg,rgba(139,92,246,0.4),rgba(6,182,212,0.3),rgba(10,10,30,0.95))',
     link:'#', featured: true,
+    mockLines: [
+      { w:'80%', c:'139,92,246' }, { w:'50%', c:'6,182,212' }, { w:'65%', c:'255,255,255' },
+    ],
+    mockStats: [['Awwwards','Winner'],['WebGL','Shaders'],['98','Perf Score']],
   },
-  // — Additional projects revealed on "View All" —
   {
     id:7, title:'DataPulse Analytics',
     category:'Development', tags:['Python','Pandas','Plotly','FastAPI'],
-    desc:'End-to-end data analytics platform with interactive dashboards, automated reports, and ML-driven forecasts.',
+    desc:'End-to-end data analytics platform with interactive dashboards, automated PDF reports, and ML-driven forecasting models.',
     accent:'6,182,212', year:'2023',
-    gradient:'linear-gradient(135deg,rgba(6,182,212,0.35),rgba(10,10,30,0.9))',
+    gradient:'linear-gradient(135deg,rgba(6,182,212,0.45),rgba(10,10,30,0.95))',
     link:'#', featured: false,
+    mockLines: [
+      { w:'70%', c:'6,182,212' }, { w:'85%', c:'255,255,255' }, { w:'55%', c:'255,255,255' },
+    ],
+    mockStats: [['1M+','Data Points'],['Auto','Reports'],['ML','Forecasting']],
   },
   {
     id:8, title:'Zephyr SaaS UI Kit',
-    category:'UI/UX', tags:['Figma','Design System','Components'],
-    desc:'Comprehensive Figma UI kit with 400+ components, tokens, and documentation for SaaS product teams.',
+    category:'UI/UX', tags:['Figma','Design Tokens','Components','Documentation'],
+    desc:'Comprehensive Figma UI kit — 400+ components, semantic tokens, dark & light modes, and full developer handoff documentation.',
     accent:'245,158,11', year:'2023',
-    gradient:'linear-gradient(135deg,rgba(245,158,11,0.3),rgba(10,10,30,0.9))',
+    gradient:'linear-gradient(135deg,rgba(245,158,11,0.4),rgba(10,10,30,0.95))',
     link:'#', featured: false,
+    mockLines: [
+      { w:'65%', c:'245,158,11' }, { w:'80%', c:'255,255,255' }, { w:'45%', c:'255,255,255' },
+    ],
+    mockStats: [['400+','Components'],['2','Modes'],['Figma','Community']],
   },
   {
     id:9, title:'Ember Restaurant Brand',
-    category:'Branding', tags:['Logo','Packaging','Menu Design'],
-    desc:'Full brand identity for a fine-dining restaurant — from logo to menu typography and packaging.',
+    category:'Branding', tags:['Logo','Packaging','Menu Design','Brand Voice'],
+    desc:'Full brand identity for a fine-dining restaurant — logomark, menu typography, custom illustrations, and packaging design.',
     accent:'239,68,68', year:'2023',
-    gradient:'linear-gradient(135deg,rgba(239,68,68,0.3),rgba(10,10,30,0.9))',
+    gradient:'linear-gradient(135deg,rgba(239,68,68,0.4),rgba(10,10,30,0.95))',
     link:'#', featured: false,
+    mockLines: [
+      { w:'55%', c:'239,68,68' }, { w:'70%', c:'255,255,255' }, { w:'85%', c:'255,255,255' },
+    ],
+    mockStats: [['Full','Brand Kit'],['Menu','Design'],['Packaging','Print']],
   },
 ];
 
@@ -168,25 +203,35 @@ export default function PortfolioSection() {
                 style={{ boxShadow: hovered === p.id ? `0 0 40px rgba(${p.accent},0.15)` : 'none' }}
               >
                 {/* preview */}
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
                     style={{ background: p.gradient }}/>
-                  {/* mock screen content */}
-                  <div className="absolute inset-4 rounded-lg border border-white/10 overflow-hidden"
-                    style={{ background:'rgba(4,4,18,0.8)' }}>
-                    <div className="p-3">
-                      <div className="flex gap-1 mb-2">
-                        <div className="w-2 h-2 rounded-full bg-red-400/60"/>
-                        <div className="w-2 h-2 rounded-full bg-yellow-400/60"/>
-                        <div className="w-2 h-2 rounded-full bg-green-400/60"/>
+                  {/* mock screen */}
+                  <div className="absolute inset-3 rounded-xl border border-white/10 overflow-hidden"
+                    style={{ background:'rgba(4,4,18,0.85)', backdropFilter:'blur(4px)' }}>
+                    <div className="p-3 h-full flex flex-col gap-2">
+                      {/* Window chrome */}
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <div className="w-2 h-2 rounded-full bg-red-400/70"/>
+                        <div className="w-2 h-2 rounded-full bg-yellow-400/70"/>
+                        <div className="w-2 h-2 rounded-full bg-green-400/70"/>
+                        <div className="flex-1 h-1.5 rounded-full ml-2" style={{ background:`rgba(${p.accent},0.2)` }}/>
                       </div>
-                      <div className="h-2 rounded-full mb-1.5 w-3/4" style={{ background:`rgba(${p.accent},0.6)` }}/>
-                      <div className="h-1.5 rounded-full mb-1 w-full bg-white/10"/>
-                      <div className="h-1.5 rounded-full mb-1 w-5/6 bg-white/8"/>
-                      <div className="h-1.5 rounded-full w-2/3 bg-white/6"/>
-                      <div className="mt-3 grid grid-cols-2 gap-1.5">
-                        <div className="h-8 rounded-md" style={{ background:`rgba(${p.accent},0.15)`, border:`1px solid rgba(${p.accent},0.2)` }}/>
-                        <div className="h-8 rounded-md bg-white/5"/>
+                      {/* Content lines */}
+                      {p.mockLines.map((line, li) => (
+                        <div key={li} className="h-1.5 rounded-full"
+                          style={{ width: line.w, background: li === 0 ? `rgba(${line.c},0.7)` : `rgba(${line.c},0.12)` }}/>
+                      ))}
+                      {/* Stats row */}
+                      <div className="mt-auto grid grid-cols-3 gap-1.5">
+                        {p.mockStats.map(([val, label], si) => (
+                          <div key={si} className="rounded-lg p-2 flex flex-col items-center"
+                            style={{ background:`rgba(${p.accent},0.12)`, border:`1px solid rgba(${p.accent},0.2)` }}>
+                            <span className="text-[9px] font-bold leading-tight text-center"
+                              style={{ color:`rgba(${p.accent},1)` }}>{val}</span>
+                            <span className="text-[7px] text-white/40 leading-tight text-center mt-0.5">{label}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -226,16 +271,26 @@ export default function PortfolioSection() {
                 </div>
 
                 {/* info */}
-                <div className="p-5 glass">
-                  <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily:'var(--font-syne), sans-serif' }}>{p.title}</h3>
-                  <p className="text-white/45 text-xs leading-relaxed mb-3 line-clamp-2">{p.desc}</p>
-                  <div className="flex flex-wrap gap-1.5">
+                <div className="p-5" style={{ background:'rgba(4,4,18,0.6)', borderTop:`1px solid rgba(${p.accent},0.15)` }}>
+                  <h3 className="text-lg font-bold text-white mb-1.5" style={{ fontFamily:'var(--font-syne), sans-serif' }}>{p.title}</h3>
+                  <p className="text-white/55 text-xs leading-relaxed mb-3 line-clamp-2">{p.desc}</p>
+                  <div className="flex flex-wrap gap-1.5 mb-3">
                     {p.tags.map(t => (
-                      <span key={t} className="px-2 py-0.5 text-[9px] tracking-wider rounded-full"
-                        style={{ background:`rgba(${p.accent},0.1)`, color:`rgba(${p.accent},0.7)`, border:`1px solid rgba(${p.accent},0.15)` }}>
+                      <span key={t} className="px-2 py-0.5 text-[9px] tracking-wider rounded-full font-medium"
+                        style={{ background:`rgba(${p.accent},0.12)`, color:`rgba(${p.accent},0.9)`, border:`1px solid rgba(${p.accent},0.2)` }}>
                         {t}
                       </span>
                     ))}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-white/25 tracking-wider">{p.year}</span>
+                    <div className="flex items-center gap-1 text-xs font-semibold tracking-wider"
+                      style={{ color:`rgba(${p.accent},0.8)` }}>
+                      <span>View Project</span>
+                      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </motion.article>
